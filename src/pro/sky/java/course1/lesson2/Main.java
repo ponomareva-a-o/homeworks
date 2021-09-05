@@ -3,37 +3,18 @@ package pro.sky.java.course1.lesson2;
 public class Main {
 
     public static void main(String[] args) {
-        double mass1 = 78.2;
-        double mass2 = 82.7;
 
-        float banana = 5 * 80F;
-        float milk = 2 * 105F;
-        float iceCream = 2 * 100F;
-        float egg = 4 * 70F;
-
-        int divider250 = 250;
-        int divider500 = 500;
-
-        int salaryMasha = 67760;
-        int salaryDenis = 83690;
-        int salaryKristina = 76230;
-        int months = 12;
-
-
-        System.out.println("Answer to the ex2:\n Sum = " + secondExSum(mass1, mass2) + ".\n" + " Diff:" + secondExDiff(mass1, mass2) + ".");
-        System.out.println("Answer to the ex3:\n Weight = " + thirdEx(banana, milk, iceCream, egg) + "kg");
-        System.out.println("Answer to the ex3:\n " + fourthEx(divider250) + " days will be needed if you lose 250 per day");
-        System.out.println("Answer to the ex4:\n " + fourthEx(divider500) + " days will be needed if you lose 500 per day");
-        System.out.println("Answer to the ex4:\n Average " + (fourthEx(divider250) + fourthEx(divider500)) / 2);
-        System.out.println("Answer to the ex5:\n Salary after up for Masha: " + fifthEx(salaryMasha) + " rub");
-        System.out.println(" Salary after up for Denis: " + fifthEx(salaryDenis) + " rub");
-        System.out.println(" Salary after up for Kristina: " + fifthEx(salaryKristina) + " rub");
-        System.out.println(" Masha's salary diff year: " + ((fifthEx(salaryMasha) * months) - (salaryMasha * months)) + " rub");
-        System.out.println(" Denis's salary diff year: " + ((fifthEx(salaryDenis) * months) - (salaryDenis * months)) + " rub");
-        System.out.println(" Kristina's salary diff year: " + ((fifthEx(salaryKristina) * months) - (salaryKristina * months)) + " rub");
+        firstEx();
+        secondEx();
+        thirdEx();
+        fourthEx();
+        fifthEx();
+        sixthEx();
+        seventhEx();
+        eighthEx();
     }
 
-    public static void firstEx(String[] args) {
+    public static void firstEx() {
         byte b = 1;
         short sh = -200;
         int i = 33000;
@@ -44,24 +25,95 @@ public class Main {
         boolean bl = false;
     }
 
-    public static double secondExSum(double mass1, double mass2) {
-        return mass1 + mass2;
+    public static void secondEx() {
+        double mass1 = 78.2;
+        double mass2 = 82.7;
+
+        double sumMass = mass1 + mass2;
+        double sumDiff = mass2 - mass1;
+
+        System.out.println("Answer to the ex2:\n Sum = " + sumMass + " kg.\n" + " Diff:" + sumDiff + " kg.");
     }
 
-    public static double secondExDiff(double mass1, double mass2) {
-        return mass2 - mass1;
+    public static void thirdEx() {
+        float banana = 5 * 80F;
+        float milk = 2 * 105F;
+        float iceCream = 2 * 100F;
+        float egg = 4 * 70F;
+        int kgToGr = 1000;
+
+        float weight = (banana + milk + iceCream + egg) / kgToGr;
+
+        System.out.println("Answer to the ex3:\n Weight = " + weight + "kg");
     }
 
-    public static float thirdEx(float banana, float milk, float iceCream, float egg) {
-        return (banana + milk + iceCream + egg) / 1000;
+    public static void fourthEx() {
+        int divider250 = 250;
+        int divider500 = 500;
+        int amountKg = 7;
+        int kgToGr = 1000;
+
+        int amountDays250 = (amountKg * kgToGr) / divider250;
+        int amountDays500 = (amountKg * kgToGr) / divider500;
+        int averageAmount = (amountDays250 + amountDays500) / 2;
+
+
+        System.out.println("Answer to the ex4:\n " + amountDays250 + " days will be needed if you lose 250 per day");
+        System.out.println(" " + amountDays500 + " days will be needed if you lose 500 per day");
+        System.out.println(" Average = " + averageAmount);
     }
 
-    public static int fourthEx(int divider) {
-        return (7 * 1000) / divider;
+    public static void fifthEx() {
+        int salaryMasha = 67760;
+        int salaryDenis = 83690;
+        int salaryKristina = 76230;
+        int months = 12;
+        int percent = 10;
+
+        double salaryMashaUp = salaryMasha * 1.1;
+        double salaryDenisUp = salaryDenis * 1.1;
+        double salaryKristinaUp = salaryKristina * 1.1;
+
+
+        System.out.println("Answer to the ex5:\n Salary after up for Masha: " + salaryMashaUp + " rub");
+        System.out.println(" Salary after up for Denis: " + salaryDenisUp + " rub");
+        System.out.println(" Salary after up for Kristina: " + salaryKristinaUp + " rub");
+        System.out.println(" Masha's salary diff year: " + (salaryMashaUp - salaryMasha) * months + " rub");
+        System.out.println(" Denis's salary diff year: " + (salaryDenisUp - salaryDenis) * months + " rub");
+        System.out.println(" Kristina's salary diff year: " + (salaryKristinaUp - salaryKristina) * months + " rub");
     }
 
-    public static int fifthEx(double salary) {
-        return (int) (salary * 1.1);
+    public static void sixthEx() {
+        int a = 12;
+        int b = 27;
+        int c = 44;
+        int d = 15;
+        int e = 9;
+
+        int result = a * (b + (c - d * e));
+        int invResult = -result;
+
+        System.out.println("Answer to the ex6: " + invResult);
     }
 
+    public static void seventhEx() {
+        int a = 5;
+        int b = 7;
+
+        a = a + b;
+        b = a - b;
+        a = a - b;
+
+        System.out.println("Answer to the ex7:\n a = " + a + ", b = " + b);
+    }
+
+    public static void eighthEx() {
+        int a = 143;
+        int b;
+
+        b = a / 10;
+        b = b % 10;
+
+        System.out.println("Answer to the ex8:\n b = " + b);
+    }
 }
