@@ -1,39 +1,23 @@
 package pro.sky.java.course1.lesson3;
 
-import org.w3c.dom.ls.LSOutput;
-import java.io.BufferedReader;
-import java.util.Scanner;
-
 public abstract class Main {
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What task do you want to check?\n");
-        int numberOfTasks = sc.nextInt();
-
-        switch (numberOfTasks) {
-            case 1:
-                task1();
-                break;
-            case 2:
-                task2();
-            case 3:
-                task3();
-            case 4:
-                task4();
-            case 5:
-                task5();
-        }
-
+        task1();
+        task2();
+        task3();
+        task4();
+        task5();
+        task6();
+        task7();
     }
 
     public static void task1() {
         int clientOS = 0 ; // 0 - iOS, 1 - Android
 
         if (clientOS == 0) {
-            System.out.println("Install the iOS version of the app using the link.");
+            System.out.println("Task 1: Install the iOS version of the app using the link.");
         } else {
-            System.out.println("Install the Android version of the app using the link.");
+            System.out.println("Task 1: Install the Android version of the app using the link.");
         }
     }
 
@@ -44,27 +28,29 @@ public abstract class Main {
         if (clientOS == 0) {
 
             if (clientDeviceYear < 2019){
-                System.out.println("Install the lite version of the app for iOS at the link");
+                System.out.println("Task 2: Install the lite version of the app for iOS at the link");
             } else {
-                System.out.println("Install the iOS version of the app using the link.");
+                System.out.println("Task 2: Install the iOS version of the app using the link.");
             }
         } else {
             if (clientDeviceYear < 2019){
-                System.out.println("Install the lite version of the app for Android at the link");
+                System.out.println("Task 2: Install the lite version of the app for Android at the link");
             } else {
-                System.out.println("Install the Android version of the app using the link.");
+                System.out.println("Task 2: Install the Android version of the app using the link.");
             }
         }
     }
 
     public static void task3() {
         int year = 2020 ;
-        boolean yearLeap = (year % 4 == 0);
+        boolean yearDivisible4 = (year % 4 == 0);
+        boolean yearDivisible100 = (year % 100 == 0);
+        boolean yearDivisible400 = (year % 400 == 0);
 
-        if (yearLeap) {
-            System.out.println("Year is a leap.");
+        if (yearDivisible4 || yearDivisible100 || yearDivisible400) {
+            System.out.println("Task 3: Year is a leap.");
         } else {
-            System.out.println("Year isn't a leap.");
+            System.out.println("Task 3: Year isn't a leap.");
         }
     }
 
@@ -72,50 +58,102 @@ public abstract class Main {
         int deliveryDistance = 95;
         int daysOnTheWay = 1;
 
-        if (deliveryDistance <= 20) {
-            System.out.println("Hello! Delivery of a bank card will take " + daysOnTheWay + " day.");
+        if (deliveryDistance > 20 && deliveryDistance < 60) {
+            daysOnTheWay++;
+        } else if (deliveryDistance >= 60){
+            daysOnTheWay++;
+            daysOnTheWay++;
         }
-        if (deliveryDistance < 60) {
-            daysOnTheWay += daysOnTheWay;
-            System.out.println("Hello! Delivery of a bank card will take " + daysOnTheWay + " days.");
-        } else {
-            daysOnTheWay = ++daysOnTheWay;
-            daysOnTheWay = ++daysOnTheWay;
-            System.out.println("Hello! Delivery of a bank card will take " + daysOnTheWay + " days.");
-        }
+
+        System.out.println("Task 4: Hello! Delivery of a bank card will take " + daysOnTheWay + " day.");
     }
 
     public static void task5() {
         int monthNumber = 12 ;
 
         switch (monthNumber) {
-            case 1:
-                System.out.println("Today is winter.");
-            case 2:
-                System.out.println("Today is winter.");
-            case 3:
-                System.out.println("Today is spring.");
-            case 4:
-                System.out.println("Today is spring.");
-            case 5:
-                System.out.println("Today is spring.");
-            case 6:
-                System.out.println("Today is summer.");
-            case 7:
-                System.out.println("Today is summer.");
-            case 8:
-                System.out.println("Today is summer.");
-            case 9:
-                System.out.println("Today is autumn.");
-            case 10:
-                System.out.println("Today is autumn.");
-            case 11:
-                System.out.println("Today is autumn.");
             case 12:
-                System.out.println("Today is winter.");
+            case 1:
+            case 2:
+                System.out.println("Task 5: Today is winter.");
+                break;
+            case 3:
+            case 4:
+            case 5:
+                System.out.println("Task 5: Today is spring.");
+                break;
+            case 6:
+            case 7:
+            case 8:
+                System.out.println("Task 5: Today is summer.");
+                break;
+            case 9:
+            case 10:
+            case 11:
+                System.out.println("Task 5: Today is autumn.");
+                break;
             default:
-                System.out.println("You live out of time.");
+                System.out.println("Task 5: You live out of time.");
         }
+    }
+
+    public static void task6() {
+        int age = 19;
+        int salary = 58_000;
+        int limit;
+        double finalLimit;
+
+        if (age < 23) {
+            limit = salary * 2;
+        } else {
+            limit = salary * 3;
+        }
+
+        if (salary > 50_000 && salary < 80_000) {
+            finalLimit = limit * 1.2;
+        } else if (salary >= 80_000) {
+            finalLimit = limit * 1.5;
+        } else {
+            finalLimit = limit;
+        }
+
+        System.out.println("Task 6: We are ready to issue you a credit card with a limit of " + finalLimit + " rubles.");
+    }
+
+    public static void task7() {
+        int age = 25;
+        double salary = 60_000;
+        int wantedSum = 330_000;
+        int baseRate = 10;
+        int term = 12;
+        double maximumMonthlyPaymentRate = 50;
+        double rate;
+        double finalRate;
+
+        if (age < 23) {
+            rate = baseRate + 1;
+        } else if (age >= 23 && age < 30){
+            rate = baseRate + 0.5;
+        } else {
+            rate = baseRate;
+        }
+
+        if (salary > 80_000) {
+            finalRate = rate - 0.7;
+        } else {
+            finalRate = rate;
+        }
+
+        double creditSum = wantedSum + ((finalRate / 100) * wantedSum);
+        double monthlyPayment = creditSum / term;
+        double maximumMonthlyPayment = salary * (maximumMonthlyPaymentRate / 100);
+
+        if (monthlyPayment <= maximumMonthlyPayment) {
+            System.out.println("Task 7: The maximum payment for a salary " + salary + " rubbles is equal to " + maximumMonthlyPayment + " rubles. Payment " + monthlyPayment + " rubles. Approved.");
+        } else {
+            System.out.println("Task 7: The maximum payment for a salary " + salary + " rubbles is equal to " + maximumMonthlyPayment + " rubles. Payment " + monthlyPayment + " rubles. Denied.");
+        }
+
     }
 
 }
