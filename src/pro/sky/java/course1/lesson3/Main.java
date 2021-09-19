@@ -47,7 +47,7 @@ public abstract class Main {
         boolean yearDivisible100 = (year % 100 == 0);
         boolean yearDivisible400 = (year % 400 == 0);
 
-        if (yearDivisible4 || yearDivisible100 || yearDivisible400) {
+        if ((yearDivisible4 && !yearDivisible100) || (yearDivisible100 && yearDivisible400)) {
             System.out.println("Task 3: Year is a leap.");
         } else {
             System.out.println("Task 3: Year isn't a leap.");
@@ -100,8 +100,7 @@ public abstract class Main {
     public static void task6() {
         int age = 19;
         int salary = 58_000;
-        int limit;
-        double finalLimit;
+        double limit;
 
         if (age < 23) {
             limit = salary * 2;
@@ -110,32 +109,27 @@ public abstract class Main {
         }
 
         if (salary > 50_000 && salary < 80_000) {
-            finalLimit = limit * 1.2;
+            limit = limit * 1.2;
         } else if (salary >= 80_000) {
-            finalLimit = limit * 1.5;
-        } else {
-            finalLimit = limit;
+            limit = limit * 1.5;
         }
 
-        System.out.println("Task 6: We are ready to issue you a credit card with a limit of " + finalLimit + " rubles.");
+        System.out.println("Task 6: We are ready to issue you a credit card with a limit of " + limit + " rubles.");
     }
 
     public static void task7() {
         int age = 25;
         double salary = 60_000;
         int wantedSum = 330_000;
-        int baseRate = 10;
         int term = 12;
         double maximumMonthlyPaymentRate = 50;
-        double rate;
+        double rate = 10;
         double finalRate;
 
         if (age < 23) {
-            rate = baseRate + 1;
+            rate = rate + 1;
         } else if (age >= 23 && age < 30){
-            rate = baseRate + 0.5;
-        } else {
-            rate = baseRate;
+            rate = rate + 0.5;
         }
 
         if (salary > 80_000) {
