@@ -124,7 +124,6 @@ public abstract class Main {
         int term = 12;
         double maximumMonthlyPaymentRate = 50;
         double rate = 10;
-        double finalRate;
 
         if (age < 23) {
             rate = rate + 1;
@@ -133,12 +132,10 @@ public abstract class Main {
         }
 
         if (salary > 80_000) {
-            finalRate = rate - 0.7;
-        } else {
-            finalRate = rate;
+            rate = rate - 0.7;
         }
 
-        double creditSum = wantedSum + ((finalRate / 100) * wantedSum);
+        double creditSum = wantedSum + ((rate / 100) * wantedSum);
         double monthlyPayment = creditSum / term;
         double maximumMonthlyPayment = salary * (maximumMonthlyPaymentRate / 100);
 
