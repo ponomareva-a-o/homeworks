@@ -59,10 +59,9 @@ public abstract class Main {
         int daysOnTheWay = 1;
 
         if (deliveryDistance > 20 && deliveryDistance < 60) {
-            daysOnTheWay++;
+            daysOnTheWay = daysOnTheWay + 1;
         } else if (deliveryDistance >= 60){
-            daysOnTheWay++;
-            daysOnTheWay++;
+            daysOnTheWay = daysOnTheWay + 2;
         }
 
         System.out.println("Task 4: Hello! Delivery of a bank card will take " + daysOnTheWay + " day.");
