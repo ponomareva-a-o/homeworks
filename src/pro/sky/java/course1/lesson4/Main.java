@@ -26,12 +26,10 @@ public class Main {
     }
 
     public static void task2() {
-        int numDayFriday = 6; // August
 
         System.out.println("\n\nTask 2: ");
-        while (numDayFriday <= 31) {
+        for (int numDayFriday = 6; numDayFriday <= 31; numDayFriday += 7) {
             System.out.println("Today is Friday, the " + numDayFriday + "th day. It is necessary to prepare a report.");
-            numDayFriday = numDayFriday + 7;
         }
     }
 
@@ -42,11 +40,10 @@ public class Main {
 
         System.out.println("\nTask 3: ");
 
-        while (earlyYear <= lateYear) {
+        for (; earlyYear <= lateYear; earlyYear++) {
             if (earlyYear % 79 == 0) {
                 System.out.println(earlyYear);
             }
-            earlyYear++;
         }
     }
 
@@ -67,16 +64,16 @@ public class Main {
     public static void task5() {
         int previous = 0;
         int current = 1;
-        int support;
+        int temp;
 
         System.out.println("\n Task 5:");
         System.out.print(previous + " ");
         for (int i = 1; i < 10; i++) {
             System.out.print(current + " ");
 
-            support = current;
-            current = previous + current;
-            previous = support;
+            temp = current;
+            current += previous;
+            previous = temp;
         }
     }
 }
