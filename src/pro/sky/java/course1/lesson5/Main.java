@@ -12,6 +12,7 @@ public class Main {
         task6();
         task7();
         task8();
+        task9();
     }
 
 
@@ -124,9 +125,11 @@ public class Main {
         System.out.println("Task 8:\n " + Arrays.toString(arr));
         for (int i = 0; i < (arr.length - 1) / 2; i++) {
             num1 = arr[i];
-            if (num1 + arr[i] == -2) {
-                num2 = arr[i];
-                System.out.println(" " + num1 + " & " + num2);
+            for (int j = 0; j < arr.length; j++) {
+                if (num1 + arr[j] == -2) {
+                    num2 = arr[j];
+                    System.out.println(" " + num1 + " & " + num2);
+                }
             }
         }
     }
