@@ -47,7 +47,7 @@ public abstract class Main {
         boolean yearDivisible100 = (year % 100 == 0);
         boolean yearDivisible400 = (year % 400 == 0);
 
-        if ((yearDivisible4 && !yearDivisible100) || (yearDivisible100 && yearDivisible400)) {
+        if (yearDivisible4 && !yearDivisible100 || yearDivisible400) {
             System.out.println("Task 3: Year is a leap.");
         } else {
             System.out.println("Task 3: Year isn't a leap.");
@@ -58,10 +58,11 @@ public abstract class Main {
         int deliveryDistance = 95;
         int daysOnTheWay = 1;
 
-        if (deliveryDistance > 20 && deliveryDistance < 60) {
-            daysOnTheWay = daysOnTheWay + 1;
-        } else if (deliveryDistance >= 60){
-            daysOnTheWay = daysOnTheWay + 2;
+        if (deliveryDistance > 20) {
+            daysOnTheWay++;
+        }
+        if (deliveryDistance >= 60) {
+            daysOnTheWay++;
         }
 
         System.out.println("Task 4: Hello! Delivery of a bank card will take " + daysOnTheWay + " day.");
@@ -108,9 +109,9 @@ public abstract class Main {
         }
 
         if (salary > 50_000 && salary < 80_000) {
-            limit = limit * 1.2;
+            limit *= 1.2;
         } else if (salary >= 80_000) {
-            limit = limit * 1.5;
+            limit *= 1.5;
         }
 
         System.out.println("Task 6: We are ready to issue you a credit card with a limit of " + limit + " rubles.");
