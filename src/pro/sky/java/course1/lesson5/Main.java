@@ -122,7 +122,7 @@ public class Main {
         int num2 = 0;
 
         Arrays.sort(arr);
-        System.out.println("Task 8:\n " + Arrays.toString(arr));
+        System.out.println("Task 8:\n ");
         for (int i = 0; i < (arr.length - 1) / 2; i++) {
             num1 = arr[i];
             for (int j = 0; j < arr.length; j++) {
@@ -140,7 +140,7 @@ public class Main {
         int num2 = 0;
 
         Arrays.sort(arr);
-        System.out.println("Task 8:\n " + Arrays.toString(arr));
+        System.out.println("Task 9:\n ");
         for (int i = 0; i < (arr.length - 1) / 2; i++) {
             num1 = arr[i];
             for (int j = 0; j < arr.length; j++) {
